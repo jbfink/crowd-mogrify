@@ -20,9 +20,9 @@ class Mogrify < CloudCrowd::Action
   # URL as the result.
   # TODO: +system+ wasn't working, figure out some other way to escape.
   def run_step(step)
-    cmd, opts = step['command'], step['options']
+    opts = step['options']
     in_path, out_path = input_path_for(step), output_path_for(step)
-    `mogrify #{cmd} #{opts} #{in_path} #{out_path}`
+    `mogrify #{opts} #{in_path} #{out_path}`
     save(out_path)    
   end
   
