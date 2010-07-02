@@ -22,7 +22,7 @@ class GraphicsMagick < CloudCrowd::Action
   def run_step(step)
     cmd, opts = step['command'], step['options']
     in_path, out_path = input_path_for(step), output_path_for(step)
-    `gm #{cmd} #{opts} #{in_path} #{out_path}`
+    `mogrify #{cmd} #{opts} #{in_path} #{out_path}`
     save(out_path)    
   end
   
